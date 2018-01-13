@@ -20,7 +20,7 @@ typings/
 
 # dotenv environment variables file
 .env
-config/environment.ts
+config/environment.*
 
 .idea/*
 
