@@ -1,0 +1,59 @@
+:host h4.header {
+    margin: 20px 24px 40px;
+}
+
+:host h4.header > a {
+    height: 36px;
+    width: 36px;
+    line-height: 36px;
+}
+
+:host h4.header > a > i {
+    line-height: 36px;
+}
+
+:host .collapsible-body {
+    position: relative;
+}
+:host .collapsible-body .fixed-action-btn {
+    position: absolute;
+}
+
+:host .collapsible-body > .row {
+    margin-bottom: 0;
+}
+
+:host .currency {
+    margin-bottom: 10px;
+    padding: 5px;
+}
+:host .currency:last-child {
+    margin-bottom: 0;
+}
+:host .currency__symbol,
+:host .currency__total {
+    display: inline-block;
+    font-size: 1.3rem;
+    line-height: 110%;
+}
+:host .currency__symbol {
+    text-transform: uppercase;
+    padding-right: 10px;
+    font-weight: bold;
+}
+:host .currency__total {
+    letter-spacing: 0.05em;
+}
+
+
+:host .chip {
+    max-width: 100%;
+    height: auto;
+    padding: 8px 12px;
+    word-break: break-all;
+}
+
+:host .chip,
+:host .chip .close{
+    line-height: 1;
+}

@@ -1,0 +1,4 @@
+export const environment = {
+    ICO_API_URL: '',
+    ICO_API_PORT: 80
+};

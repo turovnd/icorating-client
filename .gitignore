@@ -1,0 +1,40 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# Dependency directories
+node_modules/
+
+# Typescript v1 declaration files
+typings/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
+config/environment.ts
+
+.idea/*
+
+*module.js
+*component.js
+*service.js
+
+models/*.js
+
+*.map
+
+polyfills.js
+app-main.js
+vendor.js
+
+bundle/*
+
