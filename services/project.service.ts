@@ -15,6 +15,7 @@ export class ProjectService {
     };
 
     constructor(private http: Http) {
+        this.httpOptions.headers.append('Access-Control-Allow-Origin', '*');
         this.httpOptions.headers.append('Content-Type', 'application/json');
     }
 
