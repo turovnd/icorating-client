@@ -3,9 +3,9 @@ export class Project {
     name        : String;
     ticker      : String;
     wallets     : String;
-    priceBTC    : Number;
-    priceETH    : Number;
-    priceUSD    : Number;
-    dt_update   : Date;
-    dt_create   : Date;
+    price_btc   : Number;
+    price_eth   : Number;
+    price_usd   : Number;
+    updated_at  : Date;
+    create_at   : Date;
 }
