@@ -11,6 +11,7 @@ import { AppComponent }         from "./components/app/app.component";
 import { HeaderComponent }      from "./components/header/header.component";
 import { WelcomeComponent }     from "./components/welcome/welcome.component";
 import { ProjectsComponent }    from "./components/project/projects.component";
+import { ICOsComponent }    from "./components/icos/icos.component";
 
 import { CookieService }        from 'angular2-cookie/services/cookies.service';
 
@@ -31,6 +32,7 @@ import { AppRoutingModule }     from './app-routing.module';
         HeaderComponent,
         WelcomeComponent,
         ProjectsComponent,
+        ICOsComponent,
     ],
     providers: [
         CookieService,

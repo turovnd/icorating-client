@@ -38,3 +38,4 @@ vendor.js
 
 bundle/*
 
+package-lock.json

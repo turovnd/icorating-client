@@ -7,5 +7,5 @@ export class Project {
     price_eth   : Number;
     price_usd   : Number;
     updated_at  : Date;
-    create_at   : Date;
+    created_at   : Date;
 }

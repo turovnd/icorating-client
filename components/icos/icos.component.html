@@ -1,0 +1,113 @@
+<header></header>
+
+<main class="container">
+    <div class="row">
+        <div class="section">
+            <h4 class="header">ICOs<a data-target="newICO" class="modal-trigger right btn-floating waves-effect red"><i class="material-icons">add</i></a></h4>
+
+            <ul id="icos" class="collapsible popout" data-collapsible="accordion" materialize="collapsible">
+                <li *ngFor="let ico of icos">
+                    <div class="collapsible-header">{{ico.name}}</div>
+                    <div class="collapsible-body" id="ico{{ico.id}}">
+                        <div class="fixed-action-btn horizontal">
+                            <a class="btn-floating btn-large red">
+                                <i class="large material-icons">menu</i>
+                            </a>
+                            <ul>
+                                <li><a id="openEditBtn{{ico.id}}" (click)="openEditICO(ico.id)" class="btn-floating waves-effect blue"><i class="material-icons">mode_edit</i></a></li>
+                                <li><a id="updateBtn{{ico.id}}" (click)="updateICO(ico.id)" class="btn-floating waves-effect green disabled"><i class="material-icons">save</i></a></li>
+                                <li><a (click)="deleteICO(ico.id)" class="btn-floating waves-effect red"><i class="material-icons">delete_forever</i></a></li>
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input class="validate" id="name{{ico.id}}" type="text" disabled value="{{ico.name}}">
+                                <label class="active" for="name{{ico.id}}">ICO name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <input class="validate" id="telegram{{ico.id}}" type="text" disabled value="{{ico.telegram}}" placeholder="ex: @channelusername">
+                                <label class="active" for="telegram{{ico.id}}">Telegram</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input class="validate" id="bitcointalk{{ico.id}}" type="text" disabled value="{{ico.bitcointalk}}" placeholder="ex: 1632574">
+                                <label class="active" for="bitcointalk{{ico.id}}">Bitcointalk</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input class="validate" id="twitter{{ico.id}}" type="text" disabled value="{{ico.twitter}}" placeholder="ex: icorating">
+                                <label class="active" for="twitter{{ico.id}}">Twitter</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input class="validate" id="facebook{{ico.id}}" type="text" disabled value="{{ico.facebook}}" placeholder="ex: icorating">
+                                <label class="active" for="facebook{{ico.id}}">Facebook</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input class="validate" id="reddit{{ico.id}}" type="text" disabled value="{{ico.reddit}}" placeholder="ex: ICOrating">
+                                <label class="active" for="reddit{{ico.id}}">Reddit</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input class="validate" id="medium{{ico.id}}" type="text" disabled value="{{ico.medium}}" placeholder="ex: @IcoRating">
+                                <label class="active" for="medium{{ico.id}}">Medium</label>
+                            </div>
+                        </div>
+                        <p class="created">Created at {{ico.created_at | date}}, updated at {{ico.updated_at | date}}</p>
+                        <div class="seperator"></div>
+                        <div>
+                            <h5>Last scores</h5>
+                            <ul class="last-scores">
+                                <li>Telegram: {{ico.scores.telegram}}</li>
+                                <li>bitcointalk: {{ico.scores.bitcointalk}}</li>
+                                <li>twitter: {{ico.scores.twitter}}</li>
+                                <li>facebook: {{ico.scores.facebook}}</li>
+                                <li>reddit: {{ico.scores.reddit}}</li>
+                                <li>medium: {{ico.scores.medium}}</li>
+                            </ul>
+                            <p class="created">Updated at {{ico.scores.created_at | date}}</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<form id="newICO" class="modal" materialize="modal" (submit)="addICO($event)" [materializeActions]="newICOModal" [materializeParams]="[{dismissible: false}]">
+    <div class="modal-content">
+        <h4>New ico</h4>
+        <div class="col s12">
+            <div class="input-field">
+                <input class="" id="name" type="text" [(ngModel)]="model.name" name="name">
+                <label for="name">ICO name</label>
+            </div>
+            <div class="input-field">
+                <input class="" id="telegram" type="text" [(ngModel)]="model.telegram" name="telegram" placeholder="ex: @channelusername">
+                <label class="active" for="telegram">Telegram</label>
+            </div>
+            <div class="input-field">
+                <input class="" id="bitcointalk" type="text" [(ngModel)]="model.bitcointalk" name="bitcointalk" placeholder="ex: 1632574">
+                <label class="active" for="bitcointalk">Bitcointalk</label>
+            </div>
+            <div class="input-field">
+                <input class="" id="twitter" type="text" [(ngModel)]="model.twitter" name="twitter" placeholder="ex: icorating">
+                <label class="active" for="twitter">Twitter</label>
+            </div>
+            <div class="input-field">
+                <input class="" id="facebook" type="text" [(ngModel)]="model.facebook" name="facebook" placeholder="ex: icorating">
+                <label class="active" for="facebook">Facebook</label>
+            </div>
+            <div class="input-field">
+                <input class="" id="reddit" type="text" [(ngModel)]="model.reddit" name="reddit" placeholder="ex: ICOrating">
+                <label class="active" for="reddit">Reddit</label>
+            </div>
+            <div class="input-field">
+                <input class="" id="medium" type="text" [(ngModel)]="model.medium" name="medium" placeholder="ex: @IcoRating">
+                <label class="active" for="medium">Medium</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="modal-action waves-effect waves-green btn-flat">Create</button>
+        <button (click)="closeModal()" type="button" class="modal-action waves-effect waves-red btn-flat">Cancel</button>
+    </div>
+</form>
