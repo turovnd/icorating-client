@@ -64,7 +64,7 @@ export class ICOsComponent implements OnInit {
             Materialize.toast("Не правильно указано имя в reddit, укажите в формате `ICOrating`", 4000);
             return;
         }
-        if (|| isUndefined(this.model.medium) || this.model.medium.indexOf('@') === -1 || this.model.medium.indexOf('/') !== -1) {
+        if (isUndefined(this.model.medium) || this.model.medium.indexOf('@') === -1 || this.model.medium.indexOf('/') !== -1) {
             Materialize.toast("Не правильно указано имя в medium, укажите в формате `@icoRating`", 4000);
             return;
         }
