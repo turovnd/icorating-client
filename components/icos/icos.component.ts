@@ -44,6 +44,10 @@ export class ICOsComponent implements OnInit {
             Materialize.toast("Не указано имя", 2000);
             return;
         }
+        if (isUndefined(this.model.website) || this.model.website.indexOf('://') === -1) {
+            Materialize.toast("Не правильно указан веб-сайт, укажите в формате `https://example.com`", 4000);
+            return;
+        }
         if (isUndefined(this.model.telegram) || this.model.telegram.indexOf('@') === -1 || this.model.telegram.indexOf('/') !== -1) {
             Materialize.toast("Не правильно указано имя канала, укажите в формате `@channel`", 4000);
             return;
@@ -98,6 +102,7 @@ export class ICOsComponent implements OnInit {
         $('#openEditBtn'+id).addClass('disabled');
         $('#name'+id).removeAttr('disabled');
         $('#telegram'+id).removeAttr('disabled');
+        $('#website'+id).removeAttr('disabled');
         $('#bitcointalk'+id).removeAttr('disabled');
         $('#twitter'+id).removeAttr('disabled');
         $('#facebook'+id).removeAttr('disabled');
@@ -111,6 +116,7 @@ export class ICOsComponent implements OnInit {
         $('#openEditBtn'+id).removeClass('disabled');
 
         let name = $('#name'+id),
+            website = $('#website'+id),
             telegram = $('#telegram'+id),
             bitcointalk = $('#bitcointalk'+id),
             twitter = $('#twitter'+id),
@@ -119,6 +125,7 @@ export class ICOsComponent implements OnInit {
             medium = $('#medium'+id);
 
         name.attr('disabled', 'disabled');
+        website.attr('disabled', 'disabled');
         telegram.attr('disabled', 'disabled');
         bitcointalk.attr('disabled', 'disabled');
         twitter.attr('disabled', 'disabled');
@@ -128,6 +135,7 @@ export class ICOsComponent implements OnInit {
 
         this.icoService.updateICO(id, {
             name: name.val(),
+            website: website.val(),
             telegram: telegram.val(),
             bitcointalk: bitcointalk.val(),
             twitter: twitter.val(),

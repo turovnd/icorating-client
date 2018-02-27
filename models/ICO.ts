@@ -1,6 +1,7 @@
 export class ICO {
     id          : Number;
     name        : String;
+    website     : String;
     telegram    : String; // @channelusername
     bitcointalk : String; // topic_number
     twitter     : String; // page_name
@@ -15,7 +16,7 @@ export class ICO {
         facebook    : Number;
         reddit      : Number;
         medium      : Number;
-        google      : Number;
+        bing        : Number;
         total_visits: Number;
         mentions    : Number;
         admin_score : Number;

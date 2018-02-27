@@ -20,12 +20,14 @@
                             </ul>
                         </div>
                         <div class="row">
-                            <div class="input-field col s12">
+                            <div class="input-field col s12 m6">
                                 <input class="validate" id="name{{ico.id}}" type="text" disabled value="{{ico.name}}">
                                 <label class="active" for="name{{ico.id}}">ICO name</label>
                             </div>
-                        </div>
-                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <input class="validate" id="website{{ico.id}}" type="text" disabled value="{{ico.website}}" placeholder="https://example.com/">
+                                <label class="active" for="website{{ico.id}}">Website</label>
+                            </div>
                             <div class="input-field col s12 m6">
                                 <input class="validate" id="telegram{{ico.id}}" type="text" disabled value="{{ico.telegram}}" placeholder="ex: @channelusername">
                                 <label class="active" for="telegram{{ico.id}}">Telegram</label>
@@ -51,7 +53,8 @@
                                 <label class="active" for="medium{{ico.id}}">Medium</label>
                             </div>
                         </div>
-                        <p class="created">Created at {{ico.created_at | date}}, updated at {{ico.updated_at | date}}</p>
+                        <p class="created">Created at {{ico.created_at | date}}</p>
+                        <p class="created">Updated at {{ico.updated_at | date}}</p>
                         <div class="seperator"></div>
                         <div>
                             <h5>Last scores</h5>
@@ -62,6 +65,8 @@
                                 <li>facebook: {{ico.scores.facebook}}</li>
                                 <li>reddit: {{ico.scores.reddit}}</li>
                                 <li>medium: {{ico.scores.medium}}</li>
+                                <li>bing: {{ico.scores.bing}}</li>
+                                <li>total_visits: {{ico.scores.total_visits}}</li>
                             </ul>
                             <p class="created">Updated at {{ico.scores.created_at | date}}</p>
                         </div>
@@ -79,6 +84,10 @@
             <div class="input-field">
                 <input class="" id="name" type="text" [(ngModel)]="model.name" name="name">
                 <label for="name">ICO name</label>
+            </div>
+            <div class="input-field">
+                <input class="validate" id="website" type="text" [(ngModel)]="model.website" name="website" placeholder="https://example.com/">
+                <label class="active" for="website">Website</label>
             </div>
             <div class="input-field">
                 <input class="" id="telegram" type="text" [(ngModel)]="model.telegram" name="telegram" placeholder="ex: @channelusername">
