@@ -8,7 +8,7 @@
             <ul id="projects" class="collapsible popout" data-collapsible="accordion" materialize="collapsible">
                 <li *ngFor="let project of projects">
                     <div class="collapsible-header">{{project.name}}</div>
-                    <div class="collapsible-body">
+                    <div class="collapsible-body" id="project{{project.id}}">
                         <div class="fixed-action-btn horizontal">
                             <a class="btn-floating btn-large red">
                                 <i class="large material-icons">menu</i>
@@ -61,25 +61,27 @@
 </main>
 
 <form id="newWallet" class="modal" materialize="modal" (submit)="addProject($event)" [materializeActions]="newWalletModal" [materializeParams]="[{dismissible: false}]">
-    <div class="modal-content">
-        <h4>New project</h4>
-        <div class="col s12">
-            <div class="input-field">
-                <input class="validate" id="projectName" type="text" [(ngModel)]="model.name" name="name">
-                <label for="projectName">Project name</label>
-            </div>
-            <div class="input-field">
-                <input class="validate" id="projectTicker" type="text" [(ngModel)]="model.ticker" name="ticker">
-                <label for="projectTicker">Ticker</label>
-            </div>
-            <div class="input-field">
-                <span>Wallets</span>
-                <div class="chips" id="projectWallets" materialize="material_chip" [materializeParams]="[{placeholder:'Enter wallet address'}]"></div>
+    <div class="modal-wrapper">
+        <div class="modal-content">
+            <h4>New project</h4>
+            <div class="col s12">
+                <div class="input-field">
+                    <input class="validate" id="projectName" type="text" [(ngModel)]="model.name" name="name">
+                    <label for="projectName">Project name</label>
+                </div>
+                <div class="input-field">
+                    <input class="validate" id="projectTicker" type="text" [(ngModel)]="model.ticker" name="ticker">
+                    <label for="projectTicker">Ticker</label>
+                </div>
+                <div class="input-field">
+                    <span>Wallets</span>
+                    <div class="chips" id="projectWallets" materialize="material_chip" [materializeParams]="[{placeholder:'Enter wallet address'}]"></div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="modal-footer">
-        <button type="submit" class="modal-action waves-effect waves-green btn-flat">Create</button>
-        <button (click)="closeModal()" type="button" class="modal-action waves-effect waves-red btn-flat">Cancel</button>
+        <div class="modal-footer">
+            <button type="submit" class="modal-action waves-effect waves-green btn-flat">Create</button>
+            <button (click)="closeModal()" type="button" class="modal-action waves-effect waves-red btn-flat">Cancel</button>
+        </div>
     </div>
 </form>

@@ -47,14 +47,16 @@ export class ProjectsComponent implements OnInit {
             return;
         }
         this.model.wallets = wallets.map(function(el){ return el.tag }).join(',');
+        $('#newWallet').find('> .modal-wrapper').addClass('loading');
         this.projectService.addProjects(this.model)
             .subscribe(res => {
                 Materialize.toast(res.message, 2000);
+                $('#newWallet').find('> .modal-wrapper').removeClass('loading');
+                this.closeModal();
                 if (res.status === 1) {
-                    this.projects.push(res.data)
+                    this.projects.unshift(res.data)
                 }
             });
-        this.closeModal();
     }
 
     deleteProject(id) {
@@ -82,6 +84,7 @@ export class ProjectsComponent implements OnInit {
     }
 
     updateProject(id) {
+        $('#project'+id).addClass('loading');
         $('#updateBtn'+id).addClass('disabled');
         $('#openEditBtn'+id).removeClass('disabled');
         let name = $('#projectName'+id),
@@ -107,6 +110,7 @@ export class ProjectsComponent implements OnInit {
                         }
                     }
                 }
+                $('#project'+id).removeClass('loading');
                 Materialize.toast(res.message, 2000);
             });
 

@@ -56,9 +56,9 @@
                         <p class="created">Created at {{ico.created_at | date}}</p>
                         <p class="created">Updated at {{ico.updated_at | date}}</p>
                         <div class="seperator"></div>
-                        <div>
-                            <h5>Last scores</h5>
-                            <ul class="last-scores">
+                        <div class="row">
+                            <h5 class="col">Last scores</h5>
+                            <ul class="last-scores col s11">
                                 <li>Telegram: {{ico.scores.telegram}}</li>
                                 <li>bitcointalk: {{ico.scores.bitcointalk}}</li>
                                 <li>twitter: {{ico.scores.twitter}}</li>
@@ -67,8 +67,9 @@
                                 <li>medium: {{ico.scores.medium}}</li>
                                 <li>bing: {{ico.scores.bing}}</li>
                                 <li>total_visits: {{ico.scores.total_visits}}</li>
+                                <li>mentions: {{ico.scores.mentions}}</li>
                             </ul>
-                            <p class="created">Updated at {{ico.scores.created_at | date}}</p>
+                            <p class="created col s11">Updated at {{ico.scores.created_at | date}}</p>
                         </div>
                     </div>
                 </li>
@@ -78,45 +79,47 @@
 </main>
 
 <form id="newICO" class="modal" materialize="modal" (submit)="addICO($event)" [materializeActions]="newICOModal" [materializeParams]="[{dismissible: false}]">
-    <div class="modal-content">
-        <h4>New ico</h4>
-        <div class="col s12">
-            <div class="input-field">
-                <input class="" id="name" type="text" [(ngModel)]="model.name" name="name">
-                <label for="name">ICO name</label>
-            </div>
-            <div class="input-field">
-                <input class="validate" id="website" type="text" [(ngModel)]="model.website" name="website" placeholder="https://example.com/">
-                <label class="active" for="website">Website</label>
-            </div>
-            <div class="input-field">
-                <input class="" id="telegram" type="text" [(ngModel)]="model.telegram" name="telegram" placeholder="ex: @channelusername">
-                <label class="active" for="telegram">Telegram</label>
-            </div>
-            <div class="input-field">
-                <input class="" id="bitcointalk" type="text" [(ngModel)]="model.bitcointalk" name="bitcointalk" placeholder="ex: 1632574">
-                <label class="active" for="bitcointalk">Bitcointalk</label>
-            </div>
-            <div class="input-field">
-                <input class="" id="twitter" type="text" [(ngModel)]="model.twitter" name="twitter" placeholder="ex: icorating">
-                <label class="active" for="twitter">Twitter</label>
-            </div>
-            <div class="input-field">
-                <input class="" id="facebook" type="text" [(ngModel)]="model.facebook" name="facebook" placeholder="ex: icorating">
-                <label class="active" for="facebook">Facebook</label>
-            </div>
-            <div class="input-field">
-                <input class="" id="reddit" type="text" [(ngModel)]="model.reddit" name="reddit" placeholder="ex: ICOrating">
-                <label class="active" for="reddit">Reddit</label>
-            </div>
-            <div class="input-field">
-                <input class="" id="medium" type="text" [(ngModel)]="model.medium" name="medium" placeholder="ex: @IcoRating">
-                <label class="active" for="medium">Medium</label>
+    <div class="modal-wrapper">
+        <div class="modal-content">
+            <h4>New ico</h4>
+            <div class="col s12">
+                <div class="input-field">
+                    <input class="" id="name" type="text" [(ngModel)]="model.name" name="name">
+                    <label for="name">ICO name</label>
+                </div>
+                <div class="input-field">
+                    <input class="validate" id="website" type="text" [(ngModel)]="model.website" name="website" placeholder="https://example.com/">
+                    <label class="active" for="website">Website</label>
+                </div>
+                <div class="input-field">
+                    <input class="" id="telegram" type="text" [(ngModel)]="model.telegram" name="telegram" placeholder="ex: @channelusername">
+                    <label class="active" for="telegram">Telegram</label>
+                </div>
+                <div class="input-field">
+                    <input class="" id="bitcointalk" type="text" [(ngModel)]="model.bitcointalk" name="bitcointalk" placeholder="ex: 1632574">
+                    <label class="active" for="bitcointalk">Bitcointalk</label>
+                </div>
+                <div class="input-field">
+                    <input class="" id="twitter" type="text" [(ngModel)]="model.twitter" name="twitter" placeholder="ex: icorating">
+                    <label class="active" for="twitter">Twitter</label>
+                </div>
+                <div class="input-field">
+                    <input class="" id="facebook" type="text" [(ngModel)]="model.facebook" name="facebook" placeholder="ex: icorating">
+                    <label class="active" for="facebook">Facebook</label>
+                </div>
+                <div class="input-field">
+                    <input class="" id="reddit" type="text" [(ngModel)]="model.reddit" name="reddit" placeholder="ex: ICOrating">
+                    <label class="active" for="reddit">Reddit</label>
+                </div>
+                <div class="input-field">
+                    <input class="" id="medium" type="text" [(ngModel)]="model.medium" name="medium" placeholder="ex: @IcoRating">
+                    <label class="active" for="medium">Medium</label>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="modal-footer">
-        <button type="submit" class="modal-action waves-effect waves-green btn-flat">Create</button>
-        <button (click)="closeModal()" type="button" class="modal-action waves-effect waves-red btn-flat">Cancel</button>
+        <div class="modal-footer">
+            <button type="submit" class="modal-action waves-effect waves-green btn-flat">Create</button>
+            <button (click)="closeModal()" type="button" class="modal-action waves-effect waves-red btn-flat">Cancel</button>
+        </div>
     </div>
 </form>

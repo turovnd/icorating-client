@@ -57,3 +57,39 @@
 :host .chip .close{
     line-height: 1;
 }
+.modal-wrapper{
+    position: relative;
+}
+.loading:before{
+    z-index:8;
+    content:"";
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color:#fafafa;
+    opacity:.6
+}
+.loading:after{
+    z-index:9;
+    content:"";
+    height:40px;
+    width:40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin:-20px 0 0 -20px;
+    transition:all .75s ease 0s;
+    border-radius:100%;
+    border-top:4px solid #5d9cec;
+    -webkit-animation:loading .75s infinite linear;
+    animation:loading .75s infinite linear;
+    -webkit-transform-origin:center;
+    transform-origin:center
+}
+
+@keyframes loading{
+    0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}
+    to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}
+}

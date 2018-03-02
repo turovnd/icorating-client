@@ -72,14 +72,16 @@ export class ICOsComponent implements OnInit {
             Materialize.toast("Не правильно указано имя в medium, укажите в формате `@icoRating`", 4000);
             return;
         }
+        $('#newICO').find('> .modal-wrapper').addClass('loading');
         this.icoService.addICO(this.model)
             .subscribe(res => {
                 Materialize.toast(res.message, 2000);
+                $('#newICO').find('> .modal-wrapper').removeClass('loading');
+                this.closeModal();
                 if (res.status === 1) {
-                    this.icos.push(res.data)
+                    this.icos.unshift(res.data)
                 }
             });
-        this.closeModal();
     }
 
     deleteICO(id) {
