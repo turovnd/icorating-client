@@ -67,14 +67,14 @@
             <div class="col s12">
                 <div class="input-field">
                     <input class="validate" id="projectName" type="text" [(ngModel)]="model.name" name="name">
-                    <label for="projectName">Project name</label>
+                    <label for="projectName">Project name <span class="red-text">*</span></label>
                 </div>
                 <div class="input-field">
                     <input class="validate" id="projectTicker" type="text" [(ngModel)]="model.ticker" name="ticker">
-                    <label for="projectTicker">Ticker</label>
+                    <label for="projectTicker">Ticker <span class="red-text">*</span></label>
                 </div>
                 <div class="input-field">
-                    <span>Wallets</span>
+                    <span>Wallets <span class="red-text">*</span></span>
                     <div class="chips" id="projectWallets" materialize="material_chip" [materializeParams]="[{placeholder:'Enter wallet address'}]"></div>
                 </div>
             </div>

@@ -44,34 +44,54 @@ export class ICOsComponent implements OnInit {
             Materialize.toast("Не указано имя", 2000);
             return;
         }
+
         if (isUndefined(this.model.website) || this.model.website.indexOf('://') === -1) {
             Materialize.toast("Не правильно указан веб-сайт, укажите в формате `https://example.com`", 4000);
             return;
         }
-        if (isUndefined(this.model.telegram) || this.model.telegram.indexOf('@') === -1 || this.model.telegram.indexOf('/') !== -1) {
-            Materialize.toast("Не правильно указано имя канала, укажите в формате `@channel`", 4000);
-            return;
+
+        if (! (this.model.telegram === "" || isUndefined(this.model.telegram))) {
+            if ((this.model.telegram.indexOf('@') === -1 || this.model.telegram.indexOf('/')) !== -1) {
+                Materialize.toast("Не правильно указано имя канала telegram, укажите в формате `@channel`", 4000);
+                return;
+            }
         }
-        if (isUndefined(this.model.bitcointalk) || this.model.bitcointalk.indexOf('.') !== -1 || this.model.bitcointalk.indexOf('/') !== -1) {
-            Materialize.toast("Не правильно указан номер топика bitcointalk, укажите в формате `123456`, без точек", 4000);
-            return;
+
+        if (! (this.model.bitcointalk === "" || isUndefined(this.model.bitcointalk))) {
+            if (this.model.bitcointalk.indexOf('.') !== -1 || this.model.bitcointalk.indexOf('/') !== -1) {
+                Materialize.toast("Не правильно указан номер топика bitcointalk, укажите в формате `123456`, без точек", 4000);
+                return;
+            }
         }
-        if (isUndefined(this.model.twitter) || this.model.twitter.indexOf('/') !== -1) {
-            Materialize.toast("Не правильно указано имя в twitter, укажите в формате `icorating`", 4000);
-            return;
+
+        if (! (this.model.twitter === "" || isUndefined(this.model.twitter))) {
+            if (this.model.twitter.indexOf('/') !== -1) {
+                Materialize.toast("Не правильно указано имя в twitter, укажите в формате `icorating`", 4000);
+                return;
+            }
         }
-        if (isUndefined(this.model.facebook) || this.model.facebook.indexOf('/') !== -1) {
-            Materialize.toast("Не правильно указано имя в facebook, укажите в формате `icorating`", 4000);
-            return;
+
+        if (! (this.model.facebook === "" || isUndefined(this.model.facebook))) {
+            if (this.model.facebook.indexOf('/') !== -1) {
+                Materialize.toast("Не правильно указано имя в facebook, укажите в формате `icorating`", 4000);
+                return;
+            }
         }
-        if (isUndefined(this.model.reddit) || this.model.reddit.indexOf('/') !== -1) {
-            Materialize.toast("Не правильно указано имя в reddit, укажите в формате `ICOrating`", 4000);
-            return;
+
+        if (! (this.model.reddit === "" || isUndefined(this.model.reddit))) {
+            if (this.model.reddit.indexOf('/') !== -1) {
+                Materialize.toast("Не правильно указано имя в reddit, укажите в формате `ICOrating`", 4000);
+                return;
+            }
         }
-        if (isUndefined(this.model.medium) || this.model.medium.indexOf('@') === -1 || this.model.medium.indexOf('/') !== -1) {
-            Materialize.toast("Не правильно указано имя в medium, укажите в формате `@icoRating`", 4000);
-            return;
+
+        if (! (this.model.medium === "" || isUndefined(this.model.medium))) {
+            if (this.model.medium.indexOf('@') === -1 || this.model.medium.indexOf('/') !== -1) {
+                Materialize.toast("Не правильно указано имя в medium, укажите в формате `@icoRating`", 4000);
+                return;
+            }
         }
+
         $('#newICO').find('> .modal-wrapper').addClass('loading');
         this.icoService.addICO(this.model)
             .subscribe(res => {
