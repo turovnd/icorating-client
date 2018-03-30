@@ -51,43 +51,43 @@ export class ICOsComponent implements OnInit {
         }
 
         if (! (this.model.telegram === "" || isUndefined(this.model.telegram))) {
-            if ((this.model.telegram.indexOf('@') === -1 || this.model.telegram.indexOf('/')) !== -1) {
-                Materialize.toast("Не правильно указано имя канала telegram, укажите в формате `@channel`", 4000);
+            if (this.model.telegram.search(/https:\/\/t.me/) === -1) {
+                Materialize.toast("Не правильно указано имя канала telegram, укажите в формате `https://t.me/chanelname`", 4000);
                 return;
             }
         }
 
         if (! (this.model.bitcointalk === "" || isUndefined(this.model.bitcointalk))) {
-            if (this.model.bitcointalk.indexOf('.') !== -1 || this.model.bitcointalk.indexOf('/') !== -1) {
-                Materialize.toast("Не правильно указан номер топика bitcointalk, укажите в формате `123456`, без точек", 4000);
+            if (this.model.bitcointalk.search(/https:\/\/bitcointalk.org\/index.php\?topic=/) === -1 ) {
+                Materialize.toast("Не правильно указан номер топика bitcointalk, укажите в формате `https://bitcointalk.org/index.php?topic=123456`", 4000);
                 return;
             }
         }
 
         if (! (this.model.twitter === "" || isUndefined(this.model.twitter))) {
-            if (this.model.twitter.indexOf('/') !== -1) {
-                Materialize.toast("Не правильно указано имя в twitter, укажите в формате `icorating`", 4000);
+            if (this.model.twitter.search(/https:\/\/twitter.com/) === -1) {
+                Materialize.toast("Не правильно указано имя в twitter, укажите в формате `https://twitter.com/icorating`", 4000);
                 return;
             }
         }
 
         if (! (this.model.facebook === "" || isUndefined(this.model.facebook))) {
-            if (this.model.facebook.indexOf('/') !== -1) {
-                Materialize.toast("Не правильно указано имя в facebook, укажите в формате `icorating`", 4000);
+            if (this.model.facebook.search(/https:\/\/www.facebook.com/) === -1) {
+                Materialize.toast("Не правильно указано имя в facebook, укажите в формате `https://www.facebook.com/icorating`", 4000);
                 return;
             }
         }
 
         if (! (this.model.reddit === "" || isUndefined(this.model.reddit))) {
-            if (this.model.reddit.indexOf('/') !== -1) {
-                Materialize.toast("Не правильно указано имя в reddit, укажите в формате `ICOrating`", 4000);
+            if (this.model.reddit.search(/https:\/\/www.reddit.com\/r/) === -1) {
+                Materialize.toast("Не правильно указано имя в reddit, укажите в формате `https://www.reddit.com/r/ICOrating`", 4000);
                 return;
             }
         }
 
         if (! (this.model.medium === "" || isUndefined(this.model.medium))) {
-            if (this.model.medium.indexOf('@') === -1 || this.model.medium.indexOf('/') !== -1) {
-                Materialize.toast("Не правильно указано имя в medium, укажите в формате `@icoRating`", 4000);
+            if (this.model.medium.search(/https:\/\/medium.com\/@/) === -1) {
+                Materialize.toast("Не правильно указано имя в medium, укажите в формате `https://medium.com/@icorating`", 4000);
                 return;
             }
         }

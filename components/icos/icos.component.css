@@ -56,6 +56,15 @@
 .created {
     margin: 0;
 }
+.modal {
+    width: 90%;
+}
+.modal-content {
+    padding-bottom: 0;
+}
+.modal-content > .row {
+    margin-bottom: 0;
+}
 .modal-wrapper{
     position: relative;
 }

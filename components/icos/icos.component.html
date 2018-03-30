@@ -78,42 +78,46 @@
     </div>
 </main>
 
-<form id="newICO" class="modal" materialize="modal" (submit)="addICO($event)" [materializeActions]="newICOModal" [materializeParams]="[{dismissible: false}]">
+<form id="newICO" class="modal modal-lg" materialize="modal" (submit)="addICO($event)" [materializeActions]="newICOModal" [materializeParams]="[{dismissible: false}]">
     <div class="modal-wrapper">
         <div class="modal-content">
             <h4>New ico</h4>
-            <div class="col s12">
-                <div class="input-field">
-                    <input class="" id="name" type="text" [(ngModel)]="model.name" name="name">
-                    <label for="name">ICO name <span class="red-text">*</span></label>
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="input-field">
+                        <input class="" id="name" type="text" [(ngModel)]="model.name" name="name">
+                        <label for="name">ICO name <span class="red-text">*</span></label>
+                    </div>
+                    <div class="input-field">
+                        <input class="" id="website" type="text" [(ngModel)]="model.website" name="website" placeholder="ex: https://example.com/">
+                        <label class="active" for="website">Website <span class="red-text">*</span></label>
+                    </div>
+                    <div class="input-field">
+                        <input class="" id="telegram" type="text" [(ngModel)]="model.telegram" name="telegram" placeholder="ex: https://t.me/chanelname">
+                        <label class="active" for="telegram">Telegram</label>
+                    </div>
+                    <div class="input-field">
+                        <input class="" id="bitcointalk" type="text" [(ngModel)]="model.bitcointalk" name="bitcointalk" placeholder="ex: https://bitcointalk.org/index.php?topic=123456">
+                        <label class="active" for="bitcointalk">Bitcointalk</label>
+                    </div>
                 </div>
-                <div class="input-field">
-                    <input class="validate" id="website" type="text" [(ngModel)]="model.website" name="website" placeholder="https://example.com/">
-                    <label class="active" for="website">Website <span class="red-text">*</span></label>
-                </div>
-                <div class="input-field">
-                    <input class="" id="telegram" type="text" [(ngModel)]="model.telegram" name="telegram" placeholder="ex: @channelusername">
-                    <label class="active" for="telegram">Telegram</label>
-                </div>
-                <div class="input-field">
-                    <input class="" id="bitcointalk" type="text" [(ngModel)]="model.bitcointalk" name="bitcointalk" placeholder="ex: 1632574">
-                    <label class="active" for="bitcointalk">Bitcointalk</label>
-                </div>
-                <div class="input-field">
-                    <input class="" id="twitter" type="text" [(ngModel)]="model.twitter" name="twitter" placeholder="ex: icorating">
-                    <label class="active" for="twitter">Twitter</label>
-                </div>
-                <div class="input-field">
-                    <input class="" id="facebook" type="text" [(ngModel)]="model.facebook" name="facebook" placeholder="ex: icorating">
-                    <label class="active" for="facebook">Facebook</label>
-                </div>
-                <div class="input-field">
-                    <input class="" id="reddit" type="text" [(ngModel)]="model.reddit" name="reddit" placeholder="ex: ICOrating">
-                    <label class="active" for="reddit">Reddit</label>
-                </div>
-                <div class="input-field">
-                    <input class="" id="medium" type="text" [(ngModel)]="model.medium" name="medium" placeholder="ex: @IcoRating">
-                    <label class="active" for="medium">Medium</label>
+                <div class="col s12 m6">
+                    <div class="input-field">
+                        <input class="" id="twitter" type="text" [(ngModel)]="model.twitter" name="twitter" placeholder="ex: https://twitter.com/icorating">
+                        <label class="active" for="twitter">Twitter</label>
+                    </div>
+                    <div class="input-field">
+                        <input class="" id="facebook" type="text" [(ngModel)]="model.facebook" name="facebook" placeholder="ex: https://www.facebook.com/icorating">
+                        <label class="active" for="facebook">Facebook</label>
+                    </div>
+                    <div class="input-field">
+                        <input class="" id="reddit" type="text" [(ngModel)]="model.reddit" name="reddit" placeholder="ex: https://www.reddit.com/r/ICOrating">
+                        <label class="active" for="reddit">Reddit</label>
+                    </div>
+                    <div class="input-field">
+                        <input class="" id="medium" type="text" [(ngModel)]="model.medium" name="medium" placeholder="ex: https://medium.com/@icorating">
+                        <label class="active" for="medium">Medium</label>
+                    </div>
                 </div>
             </div>
         </div>
